@@ -1,0 +1,26 @@
+version: 2
+
+sources:
+  - name: Interview_data_analysis_MDF
+    description: a loaded database already transformed that would be better done here than in SQL directly
+    database: data-eng-training-87b25bc6
+    tables:
+      - name: MDF_appusage
+        description: use of data
+        columns:
+          - name: User_id
+            description: id of the product in the source 
+            tests: 
+              - not_null    
+      - name: Data_bras_name
+      - name: Data_bras_prop
+      - name: Data_bras_vendor
+        description: the vendor information
+        columns:
+          - name: retailer
+            description: the vendor name
+          - name: productid
+            tests:
+              - not_null
+              - unique
+              
