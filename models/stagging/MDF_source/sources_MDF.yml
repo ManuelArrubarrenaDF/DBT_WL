@@ -12,15 +12,178 @@ sources:
             description: id of the product in the source 
             tests: 
               - not_null    
-      - name: Data_bras_name
-      - name: Data_bras_prop
-      - name: Data_bras_vendor
-        description: the vendor information
+      - name: MDF_audio
+        description: use of data
         columns:
-          - name: retailer
-            description: the vendor name
-          - name: productid
-            tests:
+          - name: User_id
+            description: id of the product in the source 
+            tests: 
               - not_null
-              - unique
-              
+      - name: MDF_battery
+        description: use of data
+        columns:
+          - name: User_id
+            description: id of the product in the source 
+            tests: 
+              - not_null
+      - name: MDF_bt_conn
+        description: use of data
+        columns:
+          - name: User_id
+            description: id of the product in the source 
+            tests: 
+              - not_null              
+      - name: MDF_bt_scan
+        description: use of data
+        columns:
+          - name: User_id
+            description: id of the product in the source 
+            tests: 
+              - not_null  
+      - name: MDF_calls
+        description: use of data
+        columns:
+          - name: User_id
+            description: id of the product in the source 
+            tests: 
+              - not_null 
+      - name: MDF_cars_dataset1
+        description: use of data
+        columns:
+          - name: User_id
+            description: id of the product in the source 
+            tests: 
+              - not_null            
+      - name: MDF_cells
+        description: use of data
+        columns:
+          - name: User_id
+            description: id of the product in the source 
+            tests: 
+              - not_null
+      - name: MDF_context_recognition_dataset1
+        description: use of data
+        columns:
+          - name: User_id
+            description: id of the product in the source 
+            tests: 
+              - not_null     
+      - name: MDF_display
+        description: use of data
+        columns:
+          - name: User_id
+            description: id of the product in the source 
+            tests: 
+              - not_null 
+      - name: MDF_environment_sensors
+        description: use of data
+        columns:
+          - name: User_id
+            description: id of the product in the source 
+            tests: 
+              - not_null  
+      - name: MDF_installed_apps
+        description: use of data
+        columns:
+          - name: User_id
+            description: id of the product in the source 
+            tests: 
+              - not_null  
+      - name: MDF_liked_books
+        description: use of data
+        columns:
+          - name: User_id
+            description: id of the product in the source 
+            tests: 
+              - not_null     
+      - name: MDF_liked_games
+        description: use of data
+        columns:
+          - name: User_id
+            description: id of the product in the source 
+            tests: 
+              - not_null 
+      - name: MDF_liked_movies
+        description: use of data
+        columns:
+          - name: User_id
+            description: id of the product in the source 
+            tests: 
+              - not_null   
+      - name: MDF_liked_music
+        description: use of data
+        columns:
+          - name: User_id
+            description: id of the product in the source 
+            tests: 
+              - not_null
+      - name: MDF_liked_pages
+        description: use of data
+        columns:
+          - name: User_id
+            description: id of the product in the source 
+            tests: 
+              - not_null
+      - name: MDF_liked_tv_shows
+        description: use of data
+        columns:
+          - name: User_id
+            description: id of the product in the source 
+            tests: 
+              - not_null  
+      - name: MDF_liked_tv_shows
+        description: use of data
+        columns:
+          - name: User_id
+            description: id of the product in the source 
+            tests: 
+              - not_null  
+      - name: MDF_location
+        description: use of data
+        columns:
+          - name: User_id
+            description: id of the product in the source 
+            tests: 
+              - not_null       
+      - name: MDF_motion_sensors
+        description: use of data
+        columns:
+          - name: User_id
+            description: id of the product in the source 
+            tests: 
+              - not_null
+      - name: MDF_position_sensors
+        description: use of data
+        columns:
+          - name: User_id
+            description: id of the product in the source 
+            tests: 
+              - not_null  
+      - name: MDF_running_apps
+        description: use of data
+        columns:
+          - name: User_id
+            description: id of the product in the source 
+            tests: 
+              - not_null
+      - name: MDF_weather
+        description: use of data
+        columns:
+          - name: User_id
+            description: id of the product in the source 
+            tests: 
+              - not_null 
+      - name: MDF_wifi_p2p_scans
+        description: use of data
+        columns:
+          - name: User_id
+            description: id of the product in the source 
+            tests: 
+              - not_null
+      - name: MDF_wifi_scans
+        description: use of data
+        columns:
+          - name: User_id
+            description: id of the product in the source 
+            tests: 
+              - not_null                                                                                                                                                                                                                                                                                                                                                            
