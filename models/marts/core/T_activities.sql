@@ -6,7 +6,8 @@ SUM(running)as sum_running,
 SUM(still)as sum_still,
 SUM(tilting) as sum_tilting,
 SUM(walking) as sum_walking,
-SUM(unknown) as sum_unknown
+SUM(unknown) as sum_unknown,
+hour_day
 FROM {{ ref('stg_activities') }}
 GROUP BY hour_day, User_id
 ORDER BY hour_day DESC
