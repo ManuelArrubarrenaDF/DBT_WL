@@ -1,6 +1,6 @@
 with
 source as (
-    SELECT User_id, total_fg_time, time
+    SELECT User_id, total_fg_time, ROUND((CAST(SUBSTR(cast(time AS STRING), 6,2) AS FLOAT64)-50) / 0.83333, 2) AS hour_day
    CASE 
         WHEN LOWER(package_name) LIKE '%android%' THEN 'android'
         WHEN LOWER(package_name) LIKE '%whatsapp%' THEN 'whatsapp'
