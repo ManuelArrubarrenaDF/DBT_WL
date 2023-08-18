@@ -131,13 +131,6 @@ sources:
             description: id of the product in the source 
             tests: 
               - not_null  
-      - name: MDF_liked_tv_shows
-        description: use of data
-        columns:
-          - name: User_id
-            description: id of the product in the source 
-            tests: 
-              - not_null  
       - name: MDF_location
         description: use of data
         columns:
