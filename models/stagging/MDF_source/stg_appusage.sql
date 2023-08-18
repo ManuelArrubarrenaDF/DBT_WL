@@ -1,6 +1,6 @@
 with
 source as (
-    SELECT User_id, total_fg_time,
+    SELECT User_id, total_fg_time, time
    CASE 
         WHEN LOWER(package_name) LIKE '%android%' THEN 'android'
         WHEN LOWER(package_name) LIKE '%whatsapp%' THEN 'whatsapp'
