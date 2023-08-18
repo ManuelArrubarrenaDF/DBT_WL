@@ -21,7 +21,5 @@ source as (
    FROM {{ source('Interview_data_analysis_MDF', 'MDF_appusage') }}
 )
 
-SELECT User_id, SUM (total_fg_time) AS time_in_app, pack_name_clean
+SELECT *
 FROM source
-GROUP BY pack_name_clean, User_id
-ORDER BY time_in_app DESC
