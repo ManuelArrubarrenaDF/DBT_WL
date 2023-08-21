@@ -32,14 +32,7 @@ sources:
           - name: User_id
             description: id of the product in the source 
             tests: 
-              - not_null
-      - name: MDF_bt_conn
-        description: use of data
-        columns:
-          - name: User_id
-            description: id of the product in the source 
-            tests: 
-              - not_null              
+              - not_null          
       - name: MDF_bt_scan
         description: use of data
         columns:
