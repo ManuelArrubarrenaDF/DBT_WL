@@ -1,6 +1,7 @@
 with
 source as (
     SELECT *, 
+    ROW_NUMBER() OVER() AS ID_all,
         CASE 
             WHEN Winner = 'A' THEN 1 ELSE 0 END AS AwayWins,
         CASE  
