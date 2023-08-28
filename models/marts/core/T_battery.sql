@@ -1,7 +1,7 @@
 SELECT 
 AVG(level) As avg_level,
 charging,
-hour_day
+hours, minutes, hour_min
 FROM {{ ref('stg_battery') }}
-GROUP BY hour_day, charging
-ORDER BY hour_day DESC
+GROUP BY hours, minutes, hour_min, charging
+-- ORDER BY hour_day DESC

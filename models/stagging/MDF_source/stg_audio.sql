@@ -1,7 +1,11 @@
 with
 source as (
     SELECT * EXCEPT (time),
-    ROUND((CAST(SUBSTR(cast(time AS STRING), 6,2) AS FLOAT64)-50) / 0.416666, 2) AS hour_day
+    --    SELECT TIMESTAMP_MILLIS(time) as hrs, 
+    EXTRACT(HOUR FROM TIMESTAMP_MILLIS(time)) AS hours,
+    EXTRACT(MINUTE FROM TIMESTAMP_MILLIS(time)) AS minutes,
+    /*CAST(CONCAT(CAST(EXTRACT(HOUR FROM TIMESTAMP_MILLIS(time)) AS STRING), CAST((EXTRACT(HOUR FROM TIMESTAMP_MILLIS(time))/1) AS STRING)) AS FLOAT64) AS hour_minute,*/
+    ROUND(EXTRACT(HOUR FROM TIMESTAMP_MILLIS(time)) + (EXTRACT(MINUTE FROM TIMESTAMP_MILLIS(time))) / 100, 2) AS hour_min
 
    FROM {{ source('Interview_data_analysis_MDF', 'MDF_audio') }}
 )

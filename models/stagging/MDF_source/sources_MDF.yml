@@ -179,4 +179,18 @@ sources:
           - name: User_id
             description: id of the product in the source 
             tests: 
-              - not_null                                                                                                                                                                                                                                                                                                                                                            
+              - not_null
+
+  - name: Interview_data_analysis
+    description: a loaded database already transformed that would be better done here than in SQL directly
+    database: data-eng-training-87b25bc6
+    tables:
+      - name: AllLeagues
+        description: use of data from other database
+        columns:
+          - name: Winner
+            description: result 
+            tests: 
+              - not_null    
+      - name: Tel_vehicle_sales
+        description: use of data from other database                                                                                                                                                                                                                                                                                                                                                      
