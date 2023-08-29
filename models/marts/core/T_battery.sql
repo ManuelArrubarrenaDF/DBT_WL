@@ -1,5 +1,5 @@
 SELECT 
-AVG(level) As avg_level,
+AVG(level) As avg_bat_level,
 charging,
 hours, minutes, hour_min
 FROM {{ ref('stg_battery') }}
