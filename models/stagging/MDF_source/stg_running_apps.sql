@@ -14,7 +14,11 @@ source as (
     CASE WHEN app LIKE 'com.%' THEN SUBSTRING(app,5,LENGTH(app))
     WHEN app LIKE 'it.cnr%' THEN SUBSTRING(app,12,LENGTH(app))
     ELSE app
-    END AS APP_clean
+    END AS APP_clean,
+
+    CASE 
+    WHEN EXTRACT(DAYOFWEEK FROM TIMESTAMP_MILLIS(time)) >= 6 THEN 'weekend'
+    ELSE 'weekday' END AS Day_of_week 
 
    FROM {{ source('Interview_data_analysis_MDF', 'MDF_running_apps') }}
 )
