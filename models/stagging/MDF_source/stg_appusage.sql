@@ -22,7 +22,11 @@ source as (
         WHEN LOWER(package_name) LIKE '%supercell%' THEN 'supercell'
         WHEN LOWER(package_name) LIKE '%studio8apps%' THEN 'studio8apps'
    ELSE package_name
-   END AS pack_name_clean
+   END AS pack_name_clean,
+
+    CASE 
+    WHEN EXTRACT(DAYOFWEEK FROM TIMESTAMP_MILLIS(time)) >= 6 THEN 'weekend'
+    ELSE 'weekday' END AS Day_of_week 
 
    FROM {{ source('Interview_data_analysis_MDF', 'MDF_appusage') }}
 )
