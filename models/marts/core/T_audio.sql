@@ -1,4 +1,4 @@
-SELECT User_id, bt_sco_connected, mic_muted, music_active, speaker_on, headset_connected, hours, minutes, hour_min, Day_of_week, ringer_mode,
+SELECT User_id, bt_sco_connected, mic_muted, music_active, speaker_on, headset_connected, date_t, hours, hour_min, Day_of_week, ringer_mode,
 AVG(alarm_volume) As avg_alarm,
 AVG(music_volume) As avg_music,
 AVG(notifications_volume) As avg_notif,
