@@ -14,10 +14,10 @@ source as (
 
     CASE WHEN package_name LIKE 'com.%' THEN SUBSTRING(package_name,5,LENGTH(package_name))
     WHEN package_name LIKE 'it.cnr%' THEN SUBSTRING(package_name,12,LENGTH(package_name))
-    WHEN package_name LIKE 'it.%' THEN SUBSTRING(package_name,4,LENGTH(app))
+    WHEN package_name LIKE 'it.%' THEN SUBSTRING(package_name,4,LENGTH(package_name))
     ELSE package_name
     END AS pack_name_clean,
-    
+
    CASE 
         WHEN LOWER(package_name) LIKE 'android' THEN 'android'
         WHEN LOWER(package_name) LIKE 'com.android%' THEN 'android'
@@ -36,7 +36,7 @@ source as (
         WHEN LOWER(package_name) LIKE '%robtopx%' THEN 'robtopx'
         WHEN LOWER(package_name) LIKE '%supercell%' THEN 'supercell'
         WHEN LOWER(package_name) LIKE '%studio8apps%' THEN 'studio8apps'
-        WHEN LOWER(package_name) LIKE '%samsung%' AND LOWER(app) NOT LIKE '%samsung.android%' THEN 'samsung'
+        WHEN LOWER(package_name) LIKE '%samsung%' AND LOWER(package_name) NOT LIKE '%samsung.android%' THEN 'samsung'
         WHEN LOWER(package_name) LIKE '%facebook%' THEN 'facebook'
         -- REVISAR CUANDO SEA APPLE--
    ELSE 'other' 
