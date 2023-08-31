@@ -17,7 +17,11 @@ source as (
     END AS running_APP_clean,
 
     CASE 
-WHEN LOWER(app) LIKE 'android' THEN 'android'
+        WHEN LOWER(app) LIKE '%google.android%' AND LOWER(app) NOT LIKE '%youtube%' THEN 'android'
+        WHEN LOWER(app) LIKE '%youtube%' THEN 'youtube'
+        WHEN LOWER(app) LIKE '%instagram%' THEN 'instagram'
+        WHEN LOWER(app) LIKE '%qualcomm%' THEN 'qualcomm'
+        WHEN LOWER(app) LIKE 'android' THEN 'android'
         WHEN LOWER(app) LIKE 'com.android%' THEN 'android'
         WHEN LOWER(app) LIKE 'com.sec.android%' THEN 'android'
         WHEN LOWER(app) LIKE 'com.samsung.android%' THEN 'android'
