@@ -22,7 +22,7 @@ source as (
         WHEN LOWER(package_name) LIKE '%google.android%' AND LOWER(package_name) NOT LIKE '%youtube%' THEN 'android'
         WHEN LOWER(package_name) LIKE '%youtube%' THEN 'youtube'
         WHEN LOWER(package_name) LIKE '%instagram%' THEN 'instagram'
-        WHEN LOWER(app) LIKE '%qualcomm%' THEN 'qualcomm'
+        WHEN LOWER(package_name) LIKE '%qualcomm%' THEN 'qualcomm'
         WHEN LOWER(package_name) LIKE 'android' THEN 'android'
         WHEN LOWER(package_name) LIKE 'com.android%' THEN 'android'
         WHEN LOWER(package_name) LIKE 'com.sec.android%' THEN 'android'
