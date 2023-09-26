@@ -1,130 +1,67 @@
 version: 2
 
 sources:
-  - name: Interview_data_analysis_MDF
+  - name: IDA_MDF_raw
     description: a loaded database already transformed that would be better done here than in SQL directly
     database: data-eng-training-87b25bc6
     tables:
-      - name: MDF_appusage
+      - name: appusage
         description: use of data
         columns:
           - name: User_id
             description: id of the product in the source 
             tests: 
               - not_null 
-      - name: MDF_activities
+      - name: activities
         description: use of data
         columns:
           - name: User_id
             description: id of the product in the source 
             tests: 
               - not_null                 
-      - name: MDF_audio
+      - name: audio
         description: use of data
         columns:
           - name: User_id
             description: id of the product in the source 
             tests: 
               - not_null
-      - name: MDF_battery
+      - name: battery
         description: use of data
         columns:
           - name: User_id
             description: id of the product in the source 
             tests: 
               - not_null          
-      - name: MDF_bt_scan
+      - name: bt_scan
         description: use of data
         columns:
           - name: User_id
             description: id of the product in the source 
             tests: 
               - not_null  
-      - name: MDF_calls
+      - name: calls
         description: use of data
         columns:
           - name: User_id
             description: id of the product in the source 
             tests: 
-              - not_null 
-      - name: MDF_cars_dataset1
-        description: use of data
-        columns:
-          - name: User_id
-            description: id of the product in the source 
-            tests: 
-              - not_null            
-      - name: MDF_cells
+              - not_null         
+      - name: cells
         description: use of data
         columns:
           - name: User_id
             description: id of the product in the source 
             tests: 
               - not_null
-      - name: MDF_context_recognition_dataset1
-        description: use of data
-        columns:
-          - name: User_id
-            description: id of the product in the source 
-            tests: 
-              - not_null     
-      - name: MDF_display
+      - name: display
         description: use of data
         columns:
           - name: User_id
             description: id of the product in the source 
             tests: 
               - not_null 
-      - name: MDF_environment_sensors
-        description: use of data
-        columns:
-          - name: User_id
-            description: id of the product in the source 
-            tests: 
-              - not_null  
-      - name: MDF_installed_apps
-        description: use of data
-        columns:
-          - name: User_id
-            description: id of the product in the source 
-            tests: 
-              - not_null  
-      - name: MDF_liked_books
-        description: use of data
-        columns:
-          - name: User_id
-            description: id of the product in the source 
-            tests: 
-              - not_null     
-      - name: MDF_liked_games
-        description: use of data
-        columns:
-          - name: User_id
-            description: id of the product in the source 
-            tests: 
-              - not_null 
-      - name: MDF_liked_movies
-        description: use of data
-        columns:
-          - name: User_id
-            description: id of the product in the source 
-            tests: 
-              - not_null   
-      - name: MDF_liked_music
-        description: use of data
-        columns:
-          - name: User_id
-            description: id of the product in the source 
-            tests: 
-              - not_null
-      - name: MDF_liked_pages
-        description: use of data
-        columns:
-          - name: User_id
-            description: id of the product in the source 
-            tests: 
-              - not_null
-      - name: MDF_liked_tv_shows
+      - name: installed_apps
         description: use of data
         columns:
           - name: User_id
@@ -138,59 +75,17 @@ sources:
             description: id of the product in the source 
             tests: 
               - not_null       
-      - name: MDF_motion_sensors
+      - name: running_apps
         description: use of data
         columns:
           - name: User_id
             description: id of the product in the source 
             tests: 
               - not_null
-      - name: MDF_position_sensors
-        description: use of data
-        columns:
-          - name: User_id
-            description: id of the product in the source 
-            tests: 
-              - not_null  
-      - name: MDF_running_apps
+      - name: wifi_scans
         description: use of data
         columns:
           - name: User_id
             description: id of the product in the source 
             tests: 
               - not_null
-      - name: MDF_weather
-        description: use of data
-        columns:
-          - name: User_id
-            description: id of the product in the source 
-            tests: 
-              - not_null 
-      - name: MDF_wifi_p2p_scans
-        description: use of data
-        columns:
-          - name: User_id
-            description: id of the product in the source 
-            tests: 
-              - not_null
-      - name: MDF_wifi_scans
-        description: use of data
-        columns:
-          - name: User_id
-            description: id of the product in the source 
-            tests: 
-              - not_null
-
-  - name: Interview_data_analysis
-    description: a loaded database already transformed that would be better done here than in SQL directly
-    database: data-eng-training-87b25bc6
-    tables:
-      - name: AllLeagues
-        description: use of data from other database
-        columns:
-          - name: Winner
-            description: result 
-            tests: 
-              - not_null    
-      - name: Tel_vehicle_sales
-        description: use of data from other database                                                                                                                                                                                                                                                                                                                                                      
