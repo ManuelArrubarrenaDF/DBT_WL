@@ -5,7 +5,7 @@ sources:
     description: a loaded database already transformed that would be better done here than in SQL directly
     database: data-eng-training-87b25bc6
     tables:
-      - name: appusage
+      - name: apps_usage
         description: use of data
         columns:
           - name: User_id
@@ -68,7 +68,7 @@ sources:
             description: id of the product in the source 
             tests: 
               - not_null  
-      - name: MDF_location
+      - name: location
         description: use of data
         columns:
           - name: User_id
