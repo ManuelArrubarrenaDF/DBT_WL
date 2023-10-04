@@ -106,4 +106,3 @@ END
 
 SELECT *
 FROM source
-*/
