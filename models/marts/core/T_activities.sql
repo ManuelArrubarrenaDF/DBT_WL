@@ -1,4 +1,4 @@
-SELECT User_id,
+SELECT users_id,
 time, 
 SUM (in_vehicle) as sum_vehicle,
 SUM(on_bicycle) as sum_bicicle,
@@ -10,5 +10,5 @@ SUM(walking) as sum_walking,
 SUM(unknown) as sum_unknown,
 --date_t, hours, hour_min, Day_of_week
 FROM {{ ref('stg_activities') }}
-GROUP BY User_id, time
+GROUP BY users_id, time
 --ORDER BY hour_day DESC

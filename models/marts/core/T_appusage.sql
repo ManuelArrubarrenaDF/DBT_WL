@@ -1,5 +1,7 @@
-SELECT User_id, SUM (total_fg_time) AS time_in_app, 
-pack_name_clean, pack_name_root, date_t, hours, hour_min, Day_of_week
+SELECT 
+SUM (total_fg_time) AS time_in_app, 
+users_id,
+time,
+pack_name_root
 FROM {{ ref('stg_appusage') }}
-GROUP BY  pack_name_clean, pack_name_root, User_id, hours, date_t, hour_min, Day_of_week
-ORDER BY time_in_app DESC
+GROUP BY users_id, time, pack_name_root

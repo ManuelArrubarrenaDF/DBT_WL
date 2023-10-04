@@ -1,8 +1,8 @@
-SELECT User_id,
+SELECT users_id,
+time,
 AVG(rssi) As avg_rssi,
 device_class,
 user,
-mac_address,
-date_t, hours, hour_min, Day_of_week
+mac_address
 FROM {{ ref('stg_bt_scan') }}
-GROUP BY date_t, hours, hour_min, Day_of_week, device_class, user, mac_address, User_id
+GROUP BY device_class, user, mac_address, users_id, time

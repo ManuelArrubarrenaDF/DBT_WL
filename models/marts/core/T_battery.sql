@@ -1,7 +1,7 @@
-SELECT User_id,
+SELECT users_id,
+time,
 AVG(level) As avg_bat_level,
-charging,
-date_t, hours, hour_min, Day_of_week
+charging
 FROM {{ ref('stg_battery') }}
-GROUP BY date_t, hours, hour_min, Day_of_week, charging, User_id
+GROUP BY charging, users_id, time
 -- ORDER BY hour_day DESC
