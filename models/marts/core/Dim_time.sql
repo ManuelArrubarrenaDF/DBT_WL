@@ -17,7 +17,7 @@
     WHEN EXTRACT(DAYOFWEEK FROM TIMESTAMP_MILLIS(time)) >= 6 THEN 'weekend'
     ELSE 'weekday' END AS Day_of_week  
     FROM {{ source('IDA_MDF_raw', table_) }}
-{%- if not loop.last -%}
+{% if not loop.last -%}
      UNION ALL
    {% endif -%}
 
