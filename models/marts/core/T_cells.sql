@@ -1,6 +1,6 @@
-SELECT User_id,
+SELECT users_id,
+time,
 AVG(singal) As avg_signal,
-type,
-date_t, hours, hour_min, Day_of_week
+type
 FROM {{ ref('stg_cells') }}
-GROUP BY date_t, hours, hour_min, Day_of_week, type, User_id
+GROUP BY type, users_id, time 

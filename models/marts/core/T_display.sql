@@ -1,5 +1,5 @@
-SELECT User_id,
-state,
-date_t, hours, hour_min, Day_of_week
+SELECT users_id,
+time,
+state
 FROM {{ ref('stg_display') }}
-GROUP BY date_t, hours, hour_min, Day_of_week, state, User_id
+GROUP BY state, users_id, time 
