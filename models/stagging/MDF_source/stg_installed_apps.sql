@@ -1,23 +1,8 @@
-/*with
+with
 source as (
-    SELECT * EXCEPT (time),
-    date(TIMESTAMP_MILLIS(time)) as date_t, 
-    CASE 
-    WHEN EXTRACT(HOUR FROM TIMESTAMP_MILLIS(time)) <= 11 THEN 'morning'
-    WHEN EXTRACT(HOUR FROM TIMESTAMP_MILLIS(time)) > 11 AND EXTRACT(HOUR FROM TIMESTAMP_MILLIS(time)) <= 14 THEN 'noon'
-    WHEN EXTRACT(HOUR FROM TIMESTAMP_MILLIS(time)) > 14 AND EXTRACT(HOUR FROM TIMESTAMP_MILLIS(time)) <= 19 THEN 'afternoon'
-    WHEN EXTRACT(HOUR FROM TIMESTAMP_MILLIS(time)) > 19 THEN 'night'
-    END AS hours,
-    --CAST(CONCAT(CAST(EXTRACT(HOUR FROM TIMESTAMP_MILLIS(time)) AS STRING), CAST((EXTRACT(HOUR FROM TIMESTAMP_MILLIS(time))/1) AS STRING)) AS FLOAT64) AS hour_minute,
-    ROUND(EXTRACT(HOUR FROM TIMESTAMP_MILLIS(time)) + (EXTRACT(MINUTE FROM TIMESTAMP_MILLIS(time))) / 100, 2) AS hour_min,
+    SELECT * ,
 
-    CASE WHEN app LIKE 'com.%' THEN SUBSTRING(app,5,LENGTH(app))
-    WHEN app LIKE 'org.%' THEN SUBSTRING(app,5,LENGTH(app))
-    WHEN app LIKE 'it.%' THEN SUBSTRING(app,4,LENGTH(app))
-    ELSE app
-    END AS app_clean_installed,
-
-    CASE 
+CASE 
         WHEN LOWER(app) LIKE '%google.android%' AND LOWER(app) NOT LIKE '%youtube%' THEN 'android'
         WHEN LOWER(app) LIKE '%youtube%' THEN 'youtube'
         WHEN LOWER(app) LIKE '%instagram%' THEN 'instagram'
@@ -41,17 +26,80 @@ source as (
         WHEN LOWER(app) LIKE '%studio8apps%' THEN 'studio8apps'
         WHEN LOWER(app) LIKE '%samsung%' AND LOWER(app) NOT LIKE '%samsung.android%' THEN 'samsung'
         WHEN LOWER(app) LIKE '%facebook%' THEN 'facebook'
+        WHEN LOWER(app) LIKE '%.sec.%' THEN 'sec'
+        WHEN LOWER(app) LIKE '%skype%' THEN 'skype'
+    WHEN LOWER(app) LIKE '%bluemail%' THEN 'bluemail'
+    WHEN LOWER(app) LIKE '%videolan%' THEN 'videolan'
+    WHEN LOWER(app) LIKE '%motorola%' THEN 'motorola'
+    WHEN LOWER(app) LIKE '%dropbox%' THEN 'dropbox'
+    WHEN LOWER(app) LIKE '%soundcloud%' THEN 'soundcloud'
+    WHEN LOWER(app) LIKE '%ryanair%' THEN 'ryanair'
+    WHEN LOWER(app) LIKE '%tripadvisor%' THEN 'tripadvisor'
+    WHEN LOWER(app) LIKE '%booking%' THEN 'booking'
+    WHEN LOWER(app) LIKE '%ubercab%' THEN 'ubercab'
+    WHEN LOWER(app) LIKE '%duolingo%' THEN 'duolingo'
+    WHEN LOWER(app) LIKE '%roomster%' THEN 'roomster'
+    WHEN LOWER(app) LIKE '%miui%' THEN 'miui'
+    WHEN LOWER(app) LIKE '%wikipedia%' THEN 'wikipedia'
+    WHEN LOWER(app) LIKE '%badoo%' THEN 'badoo'
+    WHEN LOWER(app) LIKE '%airbnb%' THEN 'airbnb'
+    WHEN LOWER(app) LIKE '%xiaomi%' THEN 'xiaomi'
+    WHEN LOWER(app) LIKE '%hostelworld%' THEN 'hostelworld'
+    WHEN LOWER(app) LIKE '%linkedin%' THEN 'linkedin'
+    WHEN LOWER(app) LIKE '%roomiapp%' THEN 'roomiapp'
+    WHEN LOWER(app) LIKE '%tratao%' THEN 'tratao'
+    WHEN LOWER(app) LIKE '%roommate%' THEN 'roommate'
+    WHEN LOWER(app) LIKE '%alibaba%' THEN 'alibaba'
+    WHEN LOWER(app) LIKE '%skyscanner%' THEN 'skyscanner'
+    WHEN LOWER(app) LIKE '%amazon%' THEN 'amazon'
+    WHEN LOWER(app) LIKE '%.mi.%' THEN 'mi'
+    WHEN LOWER(app) LIKE '%yahoo%' THEN 'yahoo'
+    WHEN LOWER(app) LIKE '%playstation%' THEN 'playstation'
+    WHEN LOWER(app) LIKE '%trivago%' THEN 'trivago'
+    WHEN LOWER(app) LIKE '%huawei%' THEN 'huawei'
+    WHEN LOWER(app) LIKE '%netflix%' THEN 'netflix'
+    WHEN LOWER(app) LIKE '%tumblr%' THEN 'tumblr'
+    WHEN LOWER(app) LIKE '%shazam%' THEN 'shazam'
+    WHEN LOWER(app) LIKE '%snapchat%' THEN 'snapchat'
+    WHEN LOWER(app) LIKE '%ketchapp%' THEN 'ketchapp'
+    WHEN LOWER(app) LIKE '%letterboxd%' THEN 'letterboxd'
+    WHEN LOWER(app) LIKE '%translator%' THEN 'translator'
+    WHEN LOWER(app) LIKE '%photoeditor%' THEN 'photoeditor'
+    WHEN LOWER(app) LIKE '%asus%' THEN 'asus'
+    WHEN LOWER(app) LIKE '%wordreference%' THEN 'wordreference'
+    WHEN LOWER(app) LIKE '%microsoft%' THEN 'microsoft'
+    WHEN LOWER(app) LIKE '%telecomitalia%' THEN 'telecomitalia'
+    WHEN LOWER(app) LIKE '%gopro%' THEN 'gopro'
+    WHEN LOWER(app) LIKE '%.ea.%' THEN 'ea'
+    WHEN LOWER(app) LIKE '%gmail%' THEN 'gmail'
+    WHEN LOWER(app) LIKE '%adobe%' THEN 'adobe'
+    WHEN LOWER(app) LIKE '%antivirus%' THEN 'antivirus'
+    WHEN LOWER(app) LIKE '%oneplus%' THEN 'oneplus'
+    WHEN LOWER(app) LIKE '%handyapps%' THEN 'handyapps'
+    WHEN LOWER(app) LIKE '%ebay%' THEN 'ebay'
+    WHEN LOWER(app) LIKE '%justeat%' THEN 'justeat'
+    WHEN LOWER(app) LIKE '%pinterest%' THEN 'pinterest'
+    WHEN LOWER(app) LIKE '%wordgame%' THEN 'wordgame'
+    WHEN LOWER(app) LIKE '%isitlove%' THEN 'isitlove'
+    WHEN LOWER(app) LIKE '%voodoo%' THEN 'voodoo'
+    WHEN LOWER(app) LIKE '%fungames%' THEN 'fungames'
+    WHEN LOWER(app) LIKE '%mcdonalds%' THEN 'mcdonalds'
+    WHEN LOWER(app) LIKE '%gamefox%' THEN 'gamefox'
+    WHEN LOWER(app) LIKE '%twitch%' THEN 'twitch'
+    WHEN LOWER(app) LIKE '%panasonic%' THEN 'panasonic'
+    WHEN LOWER(app) LIKE '%.lge.%' THEN 'lge'
+    WHEN LOWER(app) LIKE '%nikon%' THEN 'nikon'
+    WHEN LOWER(app) LIKE '%.hp.%' THEN 'hp'
+    WHEN LOWER(app) LIKE '%nikon%' THEN 'nikon'
+    WHEN LOWER(app) LIKE '%sandbox%' THEN 'sandbox'
+    WHEN LOWER(app) LIKE '%google.earth%' THEN 'google.earth'
+    WHEN LOWER(app) LIKE '%mozilla%' THEN 'mozilla'
         -- REVISAR CUANDO SEA APPLE--
    ELSE 'other' 
-   END AS app_installed_source,
+   END AS app_installed_source
 
-    CASE 
-    WHEN EXTRACT(DAYOFWEEK FROM TIMESTAMP_MILLIS(time)) >= 6 THEN 'weekend'
-    ELSE 'weekday' END AS Day_of_week 
-
-   FROM {{ source('Interview_data_analysis_MDF', 'MDF_installed_apps') }}
+   FROM {{ source('IDA_MDF_raw', 'installed_apps') }}
 )
 
 SELECT *
 FROM source
-*/
